@@ -1,3 +1,5 @@
+import { calcItemsSize, removeDetailsClassFromItems, generateNoContentPlaceholder } from "./utils.js";
+
 "use strict";
 
 const resultWrapper = document.getElementById("result-wrapper");
@@ -135,15 +137,6 @@ function generateMovieItem(item) {
     resultWrapper.append(movieElm)
 }
 
-function generateNoContentPlaceholder() {
-    let placeholderElm = document.createElement("p");
-    placeholderElm.classList.add("no-content-placeholder");
-
-    placeholderElm.innerText = `Movies not found.`;
-
-    resultWrapper.append(placeholderElm)
-}
-
 function handleMovieItemClick(e) {
     const movieItem = e.target.closest(".movie-item");
     const movieItemID = movieItem.getAttribute("data-imdbid");
@@ -157,18 +150,6 @@ function handleMovieItemClick(e) {
         .then(movieObj => {
             showMovieInDetails(movieObj, movieItem)
         })
-}
-
-function calcItemsSize() {
-    let columnsCount = Math.floor(resultWrapper.offsetWidth / 200) || 1;
-    document.body.style.setProperty("--poster-height", (resultWrapper.offsetWidth / columnsCount) + "px");
-    document.body.style.setProperty("--result-grid-column", columnsCount.toString());
-}
-
-function removeDetailsClassFromItems() {
-    document.querySelectorAll(".movie-item").forEach(mi => {
-        mi.classList.remove("--in-details");
-    });
 }
 
 function closeDetailsSection() {
