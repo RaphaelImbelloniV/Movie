@@ -67,3 +67,5 @@ function startLoading() {
 function stopLoading() {
     document.body.classList.remove("loading")
 }
+
+export { getMovies, getSingleMovie };
