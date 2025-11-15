@@ -15,9 +15,3 @@ export function removeDetailsClassFromItems() {
 }
 
 
-export function generateNoContentPlaceholder(resultWrapper, message = "Movies not found.") {
-    let placeholderElm = document.createElement("p");
-    placeholderElm.classList.add("no-content-placeholder");
-    placeholderElm.innerText = message;
-    resultWrapper.append(placeholderElm);
-}

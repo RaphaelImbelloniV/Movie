@@ -1,21 +1,9 @@
 "use strict";
 
 import { calcItemsSize } from "./utils.js";
-import {
-    generateMovieItem,
-    generateNoContentPlaceholder,
-    closeDetailsSection,
-    showMovieInDetails,
-    removeDetailsClassFromItems
-} from "./ui.js";
+import {generateMovieItem,generateNoContentPlaceholder,closeDetailsSection,showMovieInDetails,removeDetailsClassFromItems} from "./ui.js";
 import { getMovies, getSingleMovie } from "./services.js";
-import {
-    DEFAULT_SEARCH_TERM,
-    CURRENT_PAGE,
-    SEARCH_DEBOUNCE_FLAG,
-    resetPage,
-    incrementPage
-} from "./config.js";
+import {DEFAULT_SEARCH_TERM,CURRENT_PAGE,SEARCH_DEBOUNCE_FLAG,resetPage,incrementPage} from "./config.js";
 
 const resultWrapper = document.getElementById("result-wrapper");
 const detailsWrapper = document.getElementById("id-details-wrapper");
