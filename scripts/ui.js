@@ -1,6 +1,5 @@
 "use strict";
 
-
 function generateMovieItem(movie, clickHandler) {
     const item = document.createElement("div");
     item.classList.add("movie-item");
@@ -35,7 +34,6 @@ function generateNoContentPlaceholder() {
     return placeholder;
 }
 
-
 function showMovieInDetails(movie, movieItem, detailsWrapper) {
     if (!detailsWrapper) return;
 
@@ -59,7 +57,7 @@ function showMovieInDetails(movie, movieItem, detailsWrapper) {
         </div>
     `;
 
-    detailsWrapper.classList.add("visible");
+    detailsWrapper.classList.add("--visible");
 
     const closeBtn = detailsWrapper.querySelector(".movie-details__close");
     closeBtn.addEventListener("click", () => closeDetailsSection(detailsWrapper));
@@ -67,10 +65,11 @@ function showMovieInDetails(movie, movieItem, detailsWrapper) {
 
 function closeDetailsSection(detailsWrapper) {
     if (!detailsWrapper) return;
-    detailsWrapper.classList.remove("visible");
+
+    detailsWrapper.classList.remove("--visible");
+
     detailsWrapper.innerHTML = "";
 }
-
 
 function removeDetailsClassFromItems() {
     document.querySelectorAll(".movie-item.--in-details")
